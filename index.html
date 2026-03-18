@@ -1,5 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Player</title>
+
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  video {
+    width: 100%;
+    max-width: 800px;
+    background: #000;
+  }
+
+  #title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 14px;
+  }
+</style>
+</head>
+
+<body>
+
+<p id="title"></p>
+
+<video id="player" controls playsinline>
+  <source src="" type="video/mp4">
+</video>
+
 <script>
-const ADS_LINK = "https://omg10.com/4/10430784";
+const ADS_LINK = "https://omg10.com/4/10426288";
 const JSON_URL = "videos.json";
 
 let lastAdTime = 0;
@@ -94,4 +135,7 @@ video.addEventListener("volumechange", () => {
     triggerAd();
   }
 });
-  </script>
+</script>
+
+</body>
+</html>
