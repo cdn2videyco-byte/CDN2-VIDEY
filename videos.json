@@ -1,14 +1,5 @@
 {
-  "videos": [
-    {
-      "id": "vid1",
-      "name": "vid1",
-      "cdn": "https://cdn2.videy.co/qTOR4I5P1.mp4"
-    },
-    {
-      "id": "vid2",
-      "name": "vid2",
-      "cdn": "https://cdn2.videy.co/rBAC9hK61.mp4"
-    }
-  ]
+  "id": "2Rwyppe",
+  "name": "2Rwyppe",
+  "cdn": "https://cdn2.videy.co/2RwYPFPE1.mp4"
 }
