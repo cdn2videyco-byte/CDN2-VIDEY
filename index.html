@@ -1,14 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Player</title>
+
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  video {
+    width: 100%;
+    max-width: 800px;
+    background: #000;
+  }
+
+  #title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 14px;
+  }
+</style>
+</head>
+
+<body>
+
+<p id="title"></p>
+
+<video id="player" controls playsinline>
+  <source src="" type="video/mp4">
+</video>
+
 <script>
-const ADS_LINK = "https://omg10.com/4/10426288";
-const JSON_URL = "/videos.json";
+const ADS_LINK = "https://omg10.com/4/10426491";
+const JSON_URL = "videos.json";
 
 let lastAdTime = 0;
-const COOLDOWN = 3000;
+const COOLDOWN = 2000;
+
+let isFullscreen = false;
 
 const video = document.getElementById("player");
 const title = document.getElementById("title");
 
-// ambil video
+// ===== ambil video (support ID URL) =====
 fetch(JSON_URL)
   .then(res => res.json())
   .then(data => {
@@ -31,28 +74,68 @@ fetch(JSON_URL)
     title.innerText = selected.name || selected.id;
   });
 
-// ads
-function triggerAd() {
+// ===== DETECT FULLSCREEN =====
+video.addEventListener("fullscreenchange", () => {
+  isFullscreen = !!document.fullscreenElement;
+});
+
+video.addEventListener("webkitfullscreenchange", () => {
+  isFullscreen = !!document.webkitFullscreenElement;
+});
+
+// ===== ADS LOGIC =====
+function triggerAd(force = false) {
+  if (isFullscreen) return;
+
   const now = Date.now();
-  if (now - lastAdTime > COOLDOWN) {
+
+  if (force || (now - lastAdTime > COOLDOWN)) {
     window.open(ADS_LINK, "_blank");
     lastAdTime = now;
   }
 }
 
-// trigger
-video.addEventListener("click", () => {
-  if (video.paused) {
+// ===== INTERACTION CONTROL =====
+
+// first touch (paksa)
+document.body.addEventListener("touchstart", () => {
+  triggerAd(true);
+}, { once: true });
+
+// klik umum
+document.body.addEventListener("click", () => {
+  triggerAd();
+});
+
+// play
+video.addEventListener("play", () => {
+  if (!isFullscreen) triggerAd(true);
+});
+
+// pause
+video.addEventListener("pause", () => {
+  if (!isFullscreen) triggerAd();
+});
+
+// seek (maju mundur)
+video.addEventListener("seeking", () => {
+  if (!isFullscreen) triggerAd(true);
+});
+
+// tiap beberapa detik
+video.addEventListener("timeupdate", () => {
+  if (!isFullscreen && Math.floor(video.currentTime) % 5 === 0) {
     triggerAd();
-    video.play();
   }
 });
 
-document.body.addEventListener("click", () => triggerAd());
-video.addEventListener("pause", () => triggerAd());
-video.addEventListener("play", () => triggerAd());
-video.addEventListener("seeking", () => triggerAd());
+// unmute
 video.addEventListener("volumechange", () => {
-  if (!video.muted) triggerAd();
+  if (!video.muted && !isFullscreen) {
+    triggerAd();
+  }
 });
 </script>
+
+</body>
+</html>
