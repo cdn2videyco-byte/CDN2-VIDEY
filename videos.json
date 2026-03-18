@@ -1,14 +1,14 @@
 {
   "videos": [
     {
-      "id": "coba123",
-      "name": "coba123",
-      "cdn": "https://cdn2.videy.co/050tDnfG1.mp4"
+      "id": "vid1",
+      "name": "vid1",
+      "cdn": "https://cdn2.videy.co/qTOR4I5P1.mp4"
     },
     {
-      "id": "lama123",
-      "name": "lama123",
-      "cdn": "https://cdn2.videy.co/5XBPpetx1.mp4"
+      "id": "vid2",
+      "name": "vid2",
+      "cdn": "https://cdn2.videy.co/rBAC9hK61.mp4"
     }
   ]
 }
