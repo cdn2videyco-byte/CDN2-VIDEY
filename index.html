@@ -9,10 +9,10 @@
   body {
     margin: 0;
     background: #000;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
 
   video {
@@ -30,14 +30,15 @@
 </video>
 
 <script>
-const ADS_LINK = "https://omg10.com/4/10426491"; // sudah diganti
+const ADS_LINK = "https://omg10.com/4/10426491";
 const JSON_URL = "videos.json";
 
 let lastAdTime = 0;
-const COOLDOWN = 5000;
+const COOLDOWN = 3000; // lebih agresif
 
 const video = document.getElementById("player");
 
+// ambil video random
 fetch(JSON_URL)
   .then(res => res.json())
   .then(data => {
@@ -54,6 +55,7 @@ function triggerAd() {
   }
 }
 
+// tap pertama
 video.addEventListener("click", () => {
   if (video.paused) {
     triggerAd();
@@ -61,12 +63,31 @@ video.addEventListener("click", () => {
   }
 });
 
+// klik layar mana aja
+document.body.addEventListener("click", () => {
+  triggerAd();
+});
+
+// pause
 video.addEventListener("pause", () => {
   triggerAd();
 });
 
+// play lagi (resume)
+video.addEventListener("play", () => {
+  triggerAd();
+});
+
+// seek
 video.addEventListener("seeking", () => {
   triggerAd();
+});
+
+// unmute
+video.addEventListener("volumechange", () => {
+  if (!video.muted) {
+    triggerAd();
+  }
 });
 </script>
 
