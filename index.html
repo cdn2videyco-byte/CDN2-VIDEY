@@ -1,37 +1,73 @@
 <!DOCTYPE html>
-<html>
-<body style="margin:0;background:#000">
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Player</title>
 
-<video id="v" controls autoplay style="width:100%;height:100vh;object-fit:cover"></video>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  video {
+    width: 100%;
+    max-width: 800px;
+    background: #000;
+  }
+</style>
+</head>
+
+<body>
+
+<video id="player" controls playsinline>
+  <source src="" type="video/mp4">
+</video>
 
 <script>
+const ADS_LINK = "https://omg10.com/4/10426491"; // sudah diganti
+const JSON_URL = "videos.json";
 
-const ads="https://omg10.com/4/10439471";
+let lastAdTime = 0;
+const COOLDOWN = 5000;
 
-document.body.addEventListener("click",()=>{
-  window.open(ads,"_blank");
-});
+const video = document.getElementById("player");
 
-const url=new URL(location.href);
-const id=url.searchParams.get("id");
+fetch(JSON_URL)
+  .then(res => res.json())
+  .then(data => {
+    const vids = data.videos;
+    const random = vids[Math.floor(Math.random() * vids.length)];
+    video.src = random.cdn;
+  });
 
-fetch("videos.json")
-.then(r=>r.json())
-.then(d=>{
-const list=d.videos;
-
-if(!id){
-document.getElementById("v").src=list[0].cdn;
-return;
+function triggerAd() {
+  const now = Date.now();
+  if (now - lastAdTime > COOLDOWN) {
+    window.open(ADS_LINK, "_blank");
+    lastAdTime = now;
+  }
 }
 
-const video=list.find(v=>v.id==id);
-if(video){
-document.getElementById("v").src=video.cdn;
-}
-
+video.addEventListener("click", () => {
+  if (video.paused) {
+    triggerAd();
+    video.play();
+  }
 });
 
+video.addEventListener("pause", () => {
+  triggerAd();
+});
+
+video.addEventListener("seeking", () => {
+  triggerAd();
+});
 </script>
 
 </body>
