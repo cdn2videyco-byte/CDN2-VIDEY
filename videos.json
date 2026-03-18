@@ -1,20 +1,24 @@
 {
-  "videos":[
+  "videos": [
     {
-      "id":"abc123",
-      "cdn":"https://cdn2.videy.co/vndraBkp1.mp4"
+      "id": "abc123",
+      "cdn": "https://cdn2.videy.co/vndraBkp1.mp4"
     },
     {
-      "id":"abc1234",
-      "cdn":"https://cdn2.videy.co/eWYiZxCx1.mp4"
+      "id": "abc1234",
+      "cdn": "https://cdn2.videy.co/eWYiZxCx1.mp4"
     },
     {
-      "id":"12345",
-      "cdn":"https://cdn2.videy.co/D0sggMco1.mp4"
+      "id": "12345",
+      "cdn": "https://cdn2.videy.co/D0sggMco1.mp4"
     },
     {
-      "id":"v1234567",
-      "cdn":"https://cdn2.videy.co/cJPOLbcU1.mp4"
+      "id": "v1234567",
+      "cdn": "https://cdn2.videy.co/cJPOLbcU1.mp4"
+    },
+    {
+      "id": "baru2",
+      "cdn": "https://cdn2.videy.co/RuDBcv0r1.mp4"
     }
   ]
 }
