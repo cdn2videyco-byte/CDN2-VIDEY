@@ -1,14 +1,19 @@
 {
   "videos": [
     {
-      "id": "bebas123",
-      "name": "video1",
+      "id": "test123",
+      "name": "test123",
       "cdn": "https://cdn2.videy.co/RuDBcv0r1.mp4"
     },
     {
-      "id": "bebas456",
-      "name": "video2",
-      "cdn": "https://cdn2.videy.co/ISI_LINK_LAIN.mp4"
+      "id": "now123",
+      "name": "now123",
+      "cdn": "https://cdn2.videy.co/byP336aq1.mp4"
+    },
+    {
+      "id": "tes123",
+      "name": "tes123",
+      "cdn": "https://cdn2.videy.co/CWlbA0tD1.mp4"
     }
   ]
 }
