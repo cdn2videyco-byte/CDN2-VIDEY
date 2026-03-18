@@ -1,13 +1,36 @@
 {
   "videos": [
-    { "id": "v1", "cdn": "https://cdn2.videy.co/5makvalw1.mp4" },
-    { "id": "v2", "cdn": "https://cdn2.videy.co/5G5CX6wE1.mp4" },
-    { "id": "v3", "cdn": "https://cdn2.videy.co/bQ8YbwnC1.mp4" },
-    { "id": "v4", "cdn": "https://cdn2.videy.co/nxp0JjRk1.mp4" },
-
-    { "id": "v5", "cdn": "https://cdn.videy.co/dOEcqQpt1.mp4" },
-    { "id": "v6", "cdn": "https://cdn.videy.co/LNkoRugb1.mp4" },
-    { "id": "v7", "cdn": "https://cdn.videy.co/Z0iuykBR1.mp4" },
-    { "id": "v8", "cdn": "https://cdn.videy.co/bQ8YbwnC1.mp4" }
+    {
+      "id": "v1",
+      "cdn": "https://cdn2.videy.co/5makvalw1.mp4"
+    },
+    {
+      "id": "v2",
+      "cdn": "https://cdn2.videy.co/5G5CX6wE1.mp4"
+    },
+    {
+      "id": "v3",
+      "cdn": "https://cdn2.videy.co/bQ8YbwnC1.mp4"
+    },
+    {
+      "id": "v4",
+      "cdn": "https://cdn2.videy.co/nxp0JjRk1.mp4"
+    },
+    {
+      "id": "v5",
+      "cdn": "https://cdn2.videy.co/63plg8lR1.mp4"
+    },
+    {
+      "id": "v6",
+      "cdn": "https://cdn2.videy.co/Fdfuwc6Z1.mp4"
+    },
+    {
+      "id": "v7",
+      "cdn": "https://cdn2.videy.co/3RWgGtda1.mp4"
+    },
+    {
+      "id": "v8",
+      "cdn": "https://cdn2.videy.co/uOnAMDog1.mp4"
+    }
   ]
 }
