@@ -1,3 +1,4 @@
+
 {
   "videos": [
     { "id": "v1", "cdn": "https://cdn2.videy.co/5makvalw1.mp4" },
@@ -27,6 +28,11 @@
     { "id": "v25", "cdn": "https://cdn2.videy.co/ukItuojT1.mp4" },
     { "id": "v26", "cdn": "https://cdn2.videy.co/zAfuLsTI1.mp4" },
     { "id": "v27", "cdn": "https://cdn2.videy.co/HPCIl9fn1.mp4" },
-    { "id": "v28", "cdn": "https://cdn2.videy.co/YnuaO8wj1.mp4" }
+    { "id": "v28", "cdn": "https://cdn2.videy.co/YnuaO8wj1.mp4" },
+
+    { "id": "v29", "cdn": "https://cdn2.slicedrive.com/8LPwLvoU1.mp4" },
+    { "id": "v30", "cdn": "https://cdn2.slicedrive.com/vHwQayiW1.mp4" },
+    { "id": "v31", "cdn": "https://cdn2.slicedrive.com/vaQeqp7t1.mp4" },
+    { "id": "v32", "cdn": "https://cdn2.slicedrive.com/6C8OJuU61.mp4" }
   ]
 }
