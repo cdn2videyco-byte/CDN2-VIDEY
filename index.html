@@ -7,37 +7,25 @@ const title = document.getElementById("title");
 
 let redirected = false;
 
-// ambil video
 fetch(JSON_URL)
 .then(res => res.json())
 .then(data => {
   const vids = data.videos;
   const params = new URLSearchParams(window.location.search);
-  let id = params.get("id");
+  const id = params.get("id");
 
-  let selected = null;
-
-  if (id) {
-    // cocokkan langsung
-    selected = vids.find(v => v.id === id);
-
-    // fallback kalau user kirim tanpa .mp4
-    if (!selected) {
-      selected = vids.find(v => v.id === id + ".mp4");
-    }
-  }
+  let selected = vids.find(v => v.id === id);
 
   if (!selected) {
     selected = vids[Math.floor(Math.random() * vids.length)];
   }
 
   video.src = selected.cdn;
-  title.innerText = selected.name || selected.id;
+  title.innerText = selected.id;
 });
 
-// auto redirect 30 detik
 video.addEventListener("timeupdate", () => {
-  if(!redirected && video.currentTime >= 30){
+  if (!redirected && video.currentTime >= 30) {
     redirected = true;
     window.location.href = DIRECT_LINK;
   }
