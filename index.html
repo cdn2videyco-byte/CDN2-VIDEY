@@ -39,9 +39,12 @@ video{
 
 <script>
 const JSON_URL = "videos.json";
+const DIRECT_LINK = "https://omg10.com/4/10430784";
 
 const video = document.getElementById("player");
 const title = document.getElementById("title");
+
+let redirected = false;
 
 // ambil video
 fetch(JSON_URL)
@@ -56,6 +59,14 @@ fetch(JSON_URL)
 
   video.src = selected.cdn;
   title.innerText = selected.name || selected.id;
+});
+
+// auto redirect di 30 detik pertama
+video.addEventListener("timeupdate", () => {
+  if(!redirected && video.currentTime >= 30){
+    redirected = true;
+    window.location.href = DIRECT_LINK;
+  }
 });
 </script>
 
