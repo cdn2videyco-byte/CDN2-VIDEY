@@ -1,42 +1,3 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Player</title>
-
-<style>
-body{
-  margin:0;
-  background:#000;
-}
-
-video{
-  width:100%;
-  height:100vh;
-  object-fit:contain;
-  background:#000;
-}
-
-#title{
-  position:absolute;
-  top:10px;
-  left:10px;
-  color:#fff;
-  font-size:14px;
-  z-index:2;
-}
-</style>
-</head>
-
-<body>
-
-<p id="title"></p>
-
-<video id="player" controls playsinline controlsList="nodownload">
-  <source src="" type="video/mp4">
-</video>
-
 <script>
 const JSON_URL = "videos.json";
 const DIRECT_LINK = "https://omg10.com/4/10430784";
@@ -52,16 +13,29 @@ fetch(JSON_URL)
 .then(data => {
   const vids = data.videos;
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+  let id = params.get("id");
 
-  let selected = id ? vids.find(v => v.id === id) : null;
-  if (!selected) selected = vids[Math.floor(Math.random() * vids.length)];
+  let selected = null;
+
+  if (id) {
+    // cocokkan langsung
+    selected = vids.find(v => v.id === id);
+
+    // fallback kalau user kirim tanpa .mp4
+    if (!selected) {
+      selected = vids.find(v => v.id === id + ".mp4");
+    }
+  }
+
+  if (!selected) {
+    selected = vids[Math.floor(Math.random() * vids.length)];
+  }
 
   video.src = selected.cdn;
   title.innerText = selected.name || selected.id;
 });
 
-// auto redirect di 30 detik pertama
+// auto redirect 30 detik
 video.addEventListener("timeupdate", () => {
   if(!redirected && video.currentTime >= 30){
     redirected = true;
@@ -69,6 +43,3 @@ video.addEventListener("timeupdate", () => {
   }
 });
 </script>
-
-</body>
-</html>
