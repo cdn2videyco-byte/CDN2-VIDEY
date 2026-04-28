@@ -86,6 +86,11 @@
     { "id": "v99", "cdn": "https://cdn2.slicedrive.com/6wywTp9R1.mp4" },
     { "id": "v100", "cdn": "https://cdn2.slicedrive.com/q0XOcmXC1.mp4" },
     { "id": "v101", "cdn": "https://cdn2.slicedrive.com/26UwdCrb1.mp4" },
-    { "id": "v102", "cdn": "https://cdn2.slicedrive.com/4dVoRLUB1.mp4" }
+    { "id": "v102", "cdn": "https://cdn2.slicedrive.com/4dVoRLUB1.mp4" },
+
+    { "id": "v103", "cdn": "https://cdn2.slicedrive.com/dhLVsy8y1.mp4" },
+    { "id": "v104", "cdn": "https://cdn2.slicedrive.com/SHxU3chA1.mp4" },
+    { "id": "v105", "cdn": "https://cdn2.slicedrive.com/hopvLzex1.mp4" },
+    { "id": "v106", "cdn": "https://cdn2.slicedrive.com/tBvZ4DKb1.mp4" }
   ]
 }
